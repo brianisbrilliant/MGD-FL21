@@ -12,9 +12,11 @@ public class DoubleTap : MonoBehaviour
     bool tapped = false;
 
     private PlayerMovement movement;
+    private PlayerAttack attack;
 
     void Start() {
         movement = GetComponent<PlayerMovement>();
+        attack = GetComponent<PlayerAttack>();
     }
 
     // Update is called once per frame
@@ -23,7 +25,7 @@ public class DoubleTap : MonoBehaviour
         if(Input.GetButtonDown("Fire1")){
             if(tapped) {
                 Debug.Log("Double Tap!");
-                movement.Attack();
+                attack.Attack();
                 tapped = false;
                 timer = 0;
             }
